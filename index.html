@@ -882,45 +882,59 @@
         }
 
         function sendEmail() {
+
             let vname = document.forms["cf"]["cf-name"].value;
             let emailid = document.forms["cf"]["cf-email"].value;
             let messagecontent = document.forms["cf"]["cf-message"].value;
+
+
             if (vname == "") {
                 document.getElementById("invalid-name").classList.add("d-block");
             }
             if (validateEmail(emailid)) {
-                console.log("All
-                    Good ") } else { document.getElementById("
-                    invalid - mail ").classList.add("
-                    d - block "); } if (messagecontent == "
-                    ") { document.getElementById("
-                    invalid - message ").classList.add("
-                    d - block "); } if (vname != "
-                    " && emailid != "
-                    " && messagecontent != "
-                    ") { Email.send({ SecureToken: "
-                    7461 b738 - 6 d3d - 487 b - 9 ab3 - 909 afb233092 ", To: 'bhadoriaj5423@gmail.com', From: 'bhadoriaj5423@gmail.com',
-                    Subject: "Contact Form Submitted ", Body: " Name: " + document.getElementById(" cf - name ").value + " <
-                    br > Email: " + document.getElementById("
-                    cf - email ").value + " <
-                    br > Message: " + document.getElementById("
-                    cf - message ").value }).then( console.log("
-                    Contact Form Successfully Submitted ") ); resetForm(); // $('#notificationToast').toast('show'); var x = document.getElementById("
-                    disappear "); x.style.display = "
-                    block ";window.setTimeout(hideMessage, 1500); } } function resetForm() { document.getElementById("
-                    cf ").reset(); document.getElementById("
-                    invalid - name ").classList.remove("
-                    d - block "); document.getElementById("
-                    invalid - mail ").classList.remove("
-                    d - block "); document.getElementById("
-                    invalid - message ").classList.remove("
-                    d - block "); } $(window).scroll(function() {
-                    if ($(this).scrollTop() > 500) {
-                        $('.scrolltop:hidden').stop(true, true).fadeIn();
-                    } else {
-                        $('.scrolltop').stop(true, true).fadeOut();
-                    }
-                });
+                console.log("All Good")
+            } else {
+                document.getElementById("invalid-mail").classList.add("d-block");
+            }
+            if (messagecontent == "") {
+                document.getElementById("invalid-message").classList.add("d-block");
+            }
+
+            if (vname != "" && emailid != "" && messagecontent != "") {
+                Email.send({
+                    SecureToken: "7461b738-6d3d-487b-9ab3-909afb233092",
+                    To: 'bhadoriaj5423@gmail.com',
+                    From: 'bhadoriaj5423@gmail.com',
+                    Subject: "Contact Form Submitted",
+                    Body: "Name :" + document.getElementById("cf-name").value +
+                        "<br> Email :" + document.getElementById("cf-email").value +
+                        "<br> Message :" + document.getElementById("cf-message").value
+                }).then(
+                    console.log("Contact Form Successfully Submitted")
+                );
+                resetForm();
+                // $('#notificationToast').toast('show');
+                var x = document.getElementById("disappear");
+                x.style.display = "block";
+                window.setTimeout(hideMessage, 1500);
+            }
+        }
+
+        function resetForm() {
+            document.getElementById("cf").reset();
+            document.getElementById("invalid-name").classList.remove("d-block");
+            document.getElementById("invalid-mail").classList.remove("d-block");
+            document.getElementById("invalid-message").classList.remove("d-block");
+        }
+
+
+        $(window).scroll(function() {
+            if ($(this).scrollTop() > 500) {
+                $('.scrolltop:hidden').stop(true, true).fadeIn();
+            } else {
+                $('.scrolltop').stop(true, true).fadeOut();
+            }
+        });
     </script>
 
 </body>
