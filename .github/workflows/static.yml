@@ -30,14 +30,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: jitendrabhadoria1/checkout@v4
+        uses: jitendrabhadoria1/checkout@main
       - name: Setup Pages
-        uses: jitendrabhadoria1/configure-pages@v5
+        uses: jitendrabhadoria1/configure-pages@main
       - name: Upload artifact
-        uses: jitendrabhadoria1/upload-pages-artifact@v3
+        uses: jitendrabhadoria1/upload-pages-artifact@main
         with:
           # Upload entire repository
           path: '.'
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: jitendrabhadoria1/deploy-pages@v4
+        uses: jitendrabhadoria1/deploy-pages@main
